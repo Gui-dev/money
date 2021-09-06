@@ -1,5 +1,6 @@
-<div align="center">
- <img src="/public/favicon.png" width="40"/> Money
+<div style="display: flex; align-items: center; justify-content: center; gap: 10px; margin-bottom: 20px;">
+ <img src="public/favicon.png" width="40"/>
+ <strong style="font-size: 25px;">Money</strong>
 </div>
 
 <p>O <strong>money</strong> é uma aplicação de controle financeiro </p>
