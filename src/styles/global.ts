@@ -9,8 +9,9 @@ export const GlobalStyle = createGlobalStyle`
     --decoration: #003F63;
     --red: #E52E4D;
     --marking: #C9C9C9;
-    --text-title: #F5F5F5;
-    --text-body: #969CB3;
+    --text: #969CB3;
+    --white: #FFF;
+    --text-body: #141414;
   }
 
   * {
