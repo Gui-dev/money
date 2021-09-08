@@ -1,23 +1,23 @@
 import { StrictMode } from 'react'
 import ReactDOM from 'react-dom'
-import { createServer } from 'miragejs'
+import { createServer, Model } from 'miragejs'
 import App from './App'
-import reportWebVitals from './reportWebVitals'
 
 createServer({
+  models: {
+    transaction: Model
+  },
+
   routes () {
     this.namespace = 'api'
+
     this.get('/transactions', () => {
-      return [
-        {
-          id: 1,
-          title: 'Transaction 1',
-          amount: 400,
-          type: 'deposit',
-          category: 'Food',
-          created_at: new Date()
-        }
-      ]
+      return this.schema.all('transaction')
+    })
+
+    this.post('/transactions', (schema, request) => {
+      const data = JSON.parse(request.requestBody)
+      return schema.create('transaction', data)
     })
   }
 })
@@ -28,8 +28,3 @@ ReactDOM.render(
   </StrictMode>,
   document.getElementById('root')
 )
-
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals()
