@@ -7,7 +7,8 @@ export const Container = styled.header`
 export const Content = styled.div`
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: center;
+  flex-direction: column;
   margin: 0 auto;
   max-width: 1120px;
   padding: 2rem 1rem 12rem;
@@ -15,6 +16,7 @@ export const Content = styled.div`
   button {
     font-size: 1.6rem;
     color: var(--dark);
+    margin-top: 2rem;
     padding: 0 2rem;
     height: 3rem;
     background-color: var(--highlight);
@@ -24,6 +26,16 @@ export const Content = styled.div`
 
     &:hover {
       filter: brightness(0.9);
+    }
+  }
+
+
+  @media (min-width: 720px) {
+    justify-content: space-between;
+    flex-direction: row;
+
+    button {
+      margin-top: 0;
     }
   }
 `

@@ -2,6 +2,7 @@ import styled from 'styled-components'
 
 export const Container = styled.div`
   margin-top: 4rem;
+  overflow-x: scroll;
 
   table {
     width: 100%;
@@ -36,5 +37,9 @@ export const Container = styled.div`
       }
 
     }
+  }
+
+  @media (min-width: 720px) {
+    overflow-x: hidden;
   }
 `
