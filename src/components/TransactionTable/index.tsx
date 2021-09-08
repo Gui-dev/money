@@ -1,6 +1,26 @@
+import { useEffect, useState } from 'react'
+import { api } from '../../services/api'
+import { formatDate, formatNumber } from '../../utils/formatValues'
+
 import { Container } from './style'
 
+type TransactionProps = {
+  id: number
+  title: string
+  type: string
+  category: string
+  amount: number
+  createdAt: string
+}
+
 export const TransactionTable = () => {
+  const [transactions, setTransactions] = useState<TransactionProps[]>([])
+
+  useEffect(() => {
+    api.get('/transactions')
+      .then(response => setTransactions(response.data.transactions))
+  }, [])
+
   return (
     <Container>
       <table>
@@ -14,26 +34,17 @@ export const TransactionTable = () => {
         </thead>
 
         <tbody>
-          <tr>
-            <td>Desenvolvimento de website</td>
-            <td className="deposit">R$12.000,00</td>
-            <td>Desenvolvimento</td>
-            <td>07/09/2021</td>
-          </tr>
+          { transactions.map(transaction => {
+            return (
+              <tr key={ String(transaction.id) }>
+                <td>{ transaction.title }</td>
+                <td className={ transaction.type }>{ formatNumber(transaction.amount) }</td>
+                <td>{ transaction.category }</td>
+                <td>{ formatDate(transaction.createdAt) }</td>
+              </tr>
+            )
+          }) }
 
-          <tr>
-            <td>Aluguel</td>
-            <td className="withdraw">- R$1.100,00</td>
-            <td>Casa</td>
-            <td>10/09/2021</td>
-          </tr>
-
-          <tr>
-            <td>Desenvolvimento de website</td>
-            <td>R$12.000,00</td>
-            <td>Desenvolvimento</td>
-            <td>07/09/2021</td>
-          </tr>
         </tbody>
       </table>
     </Container>
