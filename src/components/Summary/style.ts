@@ -5,6 +5,7 @@ export const Container = styled.div`
   grid-template-columns: repeat(3, 1fr);
   gap: 2rem;
   margin-top: -10rem;
+  overflow-x: scroll;
 
   section {
     color: var(--text-body);
@@ -40,5 +41,9 @@ export const Container = styled.div`
     h1 {
       color: var(--marking);
     }
+  }
+
+  @media (min-width: 720px) {
+    overflow-x: hidden;
   }
 `
