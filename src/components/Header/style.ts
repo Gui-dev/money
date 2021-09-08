@@ -18,7 +18,7 @@ export const Content = styled.div`
     color: var(--dark);
     margin-top: 2rem;
     padding: 0 2rem;
-    height: 3rem;
+    height: 5rem;
     background-color: var(--highlight);
     border-radius: 0.4rem;
     border: 0;
