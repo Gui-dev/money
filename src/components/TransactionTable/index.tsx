@@ -1,25 +1,10 @@
-import { useEffect, useState } from 'react'
-import { api } from '../../services/api'
 import { formatDate, formatNumber } from '../../utils/formatValues'
 
 import { Container } from './style'
-
-type TransactionProps = {
-  id: number
-  title: string
-  type: string
-  category: string
-  amount: number
-  createdAt: string
-}
+import { useTransaction } from './../../hooks/useTransaction'
 
 export const TransactionTable = () => {
-  const [transactions, setTransactions] = useState<TransactionProps[]>([])
-
-  useEffect(() => {
-    api.get('/transactions')
-      .then(response => setTransactions(response.data.transactions))
-  }, [])
+  const { transactions } = useTransaction()
 
   return (
     <Container>
@@ -38,7 +23,10 @@ export const TransactionTable = () => {
             return (
               <tr key={ String(transaction.id) }>
                 <td>{ transaction.title }</td>
-                <td className={ transaction.type }>{ formatNumber(transaction.amount) }</td>
+                <td className={ transaction.type }>
+                  {transaction.type === 'withdraw' ? '-' : ''}
+                  { formatNumber(transaction.amount) }
+                </td>
                 <td>{ transaction.category }</td>
                 <td>{ formatDate(transaction.createdAt) }</td>
               </tr>

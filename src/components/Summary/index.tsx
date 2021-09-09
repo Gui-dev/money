@@ -3,6 +3,8 @@ import outcomeImg from './../../assets/images/outcome.svg'
 import totalImg from './../../assets/images/total.svg'
 import { Container } from './style'
 
+// import { useTransaction } from './../../hooks/useTransaction'
+
 export const Summary = () => {
   return (
     <Container>
