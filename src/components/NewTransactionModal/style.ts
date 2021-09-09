@@ -7,7 +7,7 @@ type RadioBoxProps = {
 }
 
 const colors = {
-  green: '#3EB595',
+  green: '#0A592C',
   red: '#E52E4D'
 }
 
