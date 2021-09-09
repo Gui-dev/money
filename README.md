@@ -4,7 +4,8 @@
 
 <p>O <strong>money</strong> é uma aplicação de controle financeiro </p>
 
-<!-- ![Screen](./screens/screen.png) -->
+![Home](./screens/home.png)
+![Modal](./screens/modal.png)
 
 ## Technologies used
   - [React](https://pt-br.reactjs.org/)
@@ -16,8 +17,6 @@
   - [Husky](https://typicode.github.io/husky/#/)
   - [Lint Staged](https://github.com/okonet/lint-staged)
   - [Editor Config](https://editorconfig.org/)
-  - [PWA](https://web.dev/progressive-web-apps/)
-  - [Storybook](https://storybook.js.org/)
 
 ## Getting Started
 
